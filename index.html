@@ -4,6 +4,7 @@
   <head>
     <title>Intention Timer</title>
     <link rel="stylesheet" href="styles.css">
+    <link href=“https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap” rel=“stylesheet”>
   </head>
   <body>
     <header>
@@ -16,26 +17,33 @@
         <section class="catagory-btn">
           <div class="individual-btns">
             <button type="button" class="study-btn">Study</button>
-            <img src="" alt="">
+            <img src="./assets/study.svg" alt="study-img">
           </div>
           <div class="individual-btns">
             <button type="button" class="meditate-btn">Meditate</button>
+            <img src="./assets/meditate.svg" alt="meditate-img">
           </div>
           <div class="individual-btns">
             <button type="button" class="exercise-btn">Exercise</button>
+            <img src="./assets/exercise.svg" alt="exercise-img">
           </div>
         </section>
         <p>What would you like to accomplish during this time?</p>
         <input type="text" class="accomplish-input">
         <div class="minutes-input">
           <p>Minutes</p>
-          <input type="number">
+          <input type="number" name="minutes">
         </div>
         <div class="second-input">
           <p>Seconds</p>
-          <input type="number">
+          <input type="number" name="seconds">
         </div>
+        <button type="button" name="START ACTIVITY"></button>
       </section>
+      <aside>
+        <h2>Past Activity</h2>
+        <p>You haven't logged any activities yet! Complete the form to the left to get started.</p>
+      </aside>
     </main>
   </body>
   <link rel="javascript" href="main.js">
