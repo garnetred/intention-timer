@@ -11,13 +11,30 @@
     </header>
     <main>
       <h2>New Activity</h2>
-      <section>
+      <section class="create-new-activity">
         <p>Select a Catagory</p>
         <section class="catagory-btn">
-          <button type="button" class="study-btn">Study</button>
-          <button type="button" class="meditate-btn">Meditate</button>
-          <button type="button" class="exercise-btn">Exercise</button>
+          <div class="individual-btns">
+            <button type="button" class="study-btn">Study</button>
+            <img src="" alt="">
+          </div>
+          <div class="individual-btns">
+            <button type="button" class="meditate-btn">Meditate</button>
+          </div>
+          <div class="individual-btns">
+            <button type="button" class="exercise-btn">Exercise</button>
+          </div>
         </section>
+        <p>What would you like to accomplish during this time?</p>
+        <input type="text" class="accomplish-input">
+        <div class="minutes-input">
+          <p>Minutes</p>
+          <input type="number">
+        </div>
+        <div class="second-input">
+          <p>Seconds</p>
+          <input type="number">
+        </div>
       </section>
     </main>
   </body>
