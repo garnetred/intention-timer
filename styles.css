@@ -1,0 +1,119 @@
+/* Main background: #2B2733
+Text on main background: #CBC9CF
+Header, cards: #46424D
+Card shadow: #26222D
+Text on header and cards: #FFF
+Study: #B3FD78
+Meditate: #C278FD
+Exercise: #FD8078
+Error: #EFB7EC
+font-family: 'Montserrat', sans-serif;
+*/
+
+/* * {
+  border: none;
+  margin: 0;
+  padding: 0;
+} */
+
+body {
+  background-color: #2B2733;
+  height: 100%;
+  width: 100%;
+  color: #FFF;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:400;
+}
+
+header {
+  color: #FFF;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #46424D;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-weight:300;
+  font-size: 22px;
+  letter-spacing: .5px;
+}
+
+h2 {
+  color: #CBC9CF;
+  font-weight:300;
+}
+
+.whole-page {
+  display:flex;
+}
+
+main {
+  display:flex;
+  width:60%;
+  margin: 2%;
+  flex-direction: column;
+}
+
+.new-activity {
+  width: 100%;
+  padding:10px 0;
+}
+
+.create-new-activity {
+  background-color: #46424D;
+  padding: 40px 90px;
+}
+
+button {
+  width: 100px;
+  height: 75px;
+}
+
+.category-btn {
+  display: flex;
+  flex-direction: row;
+}
+
+.individual-btns {
+  display:flex;
+  flex-direction:row;
+  flex:1;
+}
+
+img {
+  width: 30px;
+}
+
+input {
+  background-color: #46424D;
+  border: none;
+  border-bottom: 1px solid #CBC9CF;
+  width:100%;
+}
+
+.all-time-input {
+  display:flex;
+  flex-direction:row;
+}
+
+aside {
+  display: flex;
+  width: 40%;
+  border-left:2px solid #46424D;
+  flex-direction: column;
+}
+
+.past-activities {
+  padding:25px;
+
+}
+
+/*Class for paragraph that appears if no activities have been logged.*/
+.no-activities {
+  text-align:center;
+  padding: 5px;
+  font-weight:300;
+  margin: 0;
+}

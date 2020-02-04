@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <title>Intention Timer</title>
@@ -10,41 +9,47 @@
     <header>
       <h1>Intention Timer</h1>
     </header>
+    <section class="whole-page">
     <main>
-      <h2>New Activity</h2>
+      <h2 class="new-activity">New Activity</h2>
       <section class="create-new-activity">
-        <p>Select a Catagory</p>
-        <section class="catagory-btn">
+        <p>Select a Category</p>
+        <section class="category-btn">
           <div class="individual-btns">
-            <button type="button" class="study-btn">Study</button>
-            <img src="./assets/study.svg" alt="study-img">
+            <button type="button" class="study-btn">Study
+              <img src="./assets/study.svg" alt="study-img">
+            </button>
           </div>
           <div class="individual-btns">
-            <button type="button" class="meditate-btn">Meditate</button>
-            <img src="./assets/meditate.svg" alt="meditate-img">
+            <button type="button" class="meditate-btn">Meditate
+              <img src="./assets/meditate.svg" alt="meditate-img"></button>
           </div>
           <div class="individual-btns">
-            <button type="button" class="exercise-btn">Exercise</button>
-            <img src="./assets/exercise.svg" alt="exercise-img">
+            <button type="button" class="exercise-btn">Exercise
+              <img src="./assets/exercise.svg" alt="exercise-img"></button>
           </div>
         </section>
         <p>What would you like to accomplish during this time?</p>
         <input type="text" class="accomplish-input">
-        <div class="minutes-input">
+        <div class="all-time-input">
+          <div class="time-input">
           <p>Minutes</p>
           <input type="number" name="minutes">
         </div>
-        <div class="second-input">
+        <div class="time-input">
           <p>Seconds</p>
           <input type="number" name="seconds">
         </div>
-        <button type="button" name="START ACTIVITY"></button>
+      </div>
+        <button type="button" name="START ACTIVITY">Start Activity</button>
       </section>
-      <aside>
-        <h2>Past Activity</h2>
-        <p>You haven't logged any activities yet! Complete the form to the left to get started.</p>
-      </aside>
     </main>
+    <aside>
+      <h2 class="past-activities">Past Activities</h2>
+      <p class="no-activities">You haven't logged any activities yet!</p>
+      <p class="no-activities">Complete the form to the left to get started.</p>
+    </aside>
+  </section>
   </body>
   <link rel="javascript" href="main.js">
 </html>
