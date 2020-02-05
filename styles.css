@@ -16,6 +16,10 @@ font-family: 'Montserrat', sans-serif;
   padding: 0;
 } */
 
+html {
+  border: none;
+}
+
 body {
   background-color: #2B2733;
   height: 100%;
@@ -66,54 +70,102 @@ main {
   padding: 40px 90px;
 }
 
-button {
-  width: 100px;
-  height: 75px;
+.what-to-accomplish {
+  padding-top: 5%;
+  padding-bottom: 2%;
 }
+
+/* button {
+  width: 150px;
+  background-color: #46424D;
+  border: solid 2px #CBC9CF;
+  border-radius: 20px;
+  height: 75px;
+} */
 
 .category-btn {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
-.individual-btns {
+/* .individual-btns {
   display:flex;
   flex-direction:row;
-  flex:1;
-}
+  /* flex:1; */
+/* } */
 
 img {
   width: 30px;
+}
+
+.study,
+.meditate,
+.exercise {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  background-color: #46424D;
+  border: solid 2px #CBC9CF;
+  border-radius: 7px;
+  height: 67px;
+  padding: 2px;
 }
 
 input {
   background-color: #46424D;
   border: none;
   border-bottom: 1px solid #CBC9CF;
-  width:100%;
+}
+
+.input-time {
+  width: 288px;
+}
+
+.accomplish-input {
+  width: 100%;
 }
 
 .all-time-input {
-  display:flex;
-  flex-direction:row;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.time-name {
+  padding-top: 14%;
+  padding-bottom: 3%;
+}
+
+.start-act-btn {
+  text-transform: uppercase;
+  color: #2B2733;
+  background-color: #FFF;
+  border-radius: 7px;
+  float: right;
+  height: 50px;
+  margin-top: 8%;
+  font-size: 19px;
+  width: 25%;
 }
 
 aside {
   display: flex;
   width: 40%;
-  border-left:2px solid #46424D;
+  border-left: 2px solid #46424D;
   flex-direction: column;
 }
 
 .past-activities {
-  padding:25px;
+  padding: 25px;
 
 }
 
 /*Class for paragraph that appears if no activities have been logged.*/
 .no-activities {
-  text-align:center;
+  text-align: center;
   padding: 5px;
-  font-weight:300;
+  font-weight: 300;
   margin: 0;
 }

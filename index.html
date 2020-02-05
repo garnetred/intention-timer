@@ -13,35 +13,40 @@
     <main>
       <h2 class="new-activity">New Activity</h2>
       <section class="create-new-activity">
-        <p>Select a Category</p>
+        <p>Select a Category:</p>
         <section class="category-btn">
           <div class="individual-btns">
-            <button type="button" class="study-btn">Study
+            <div class="study">
               <img src="./assets/study.svg" alt="study-img">
-            </button>
+              <p>Study</p>
+            </div>
           </div>
-          <div class="individual-btns">
-            <button type="button" class="meditate-btn">Meditate
-              <img src="./assets/meditate.svg" alt="meditate-img"></button>
+          <div class="individual-btn">
+            <div class="meditate">
+              <img src="./assets/meditate.svg" alt="meditate-img">
+              <p>Meditate</p>
+            </div>
           </div>
-          <div class="individual-btns">
-            <button type="button" class="exercise-btn">Exercise
-              <img src="./assets/exercise.svg" alt="exercise-img"></button>
+          <div class="individual-btn">
+            <div class="exercise">
+              <img src="./assets/exercise.svg" alt="exercise-img">
+              <p>Exercise</p>
+            </div>
           </div>
         </section>
-        <p>What would you like to accomplish during this time?</p>
+        <p class="what-to-accomplish">What would you like to accomplish during this time?</p>
         <input type="text" class="accomplish-input">
         <div class="all-time-input">
-          <div class="time-input">
-          <p>Minutes</p>
-          <input type="number" name="minutes">
+        <div class="time-input">
+          <p class="time-name">Minutes</p>
+          <input class="input-time" type="number" name="minutes">
         </div>
         <div class="time-input">
-          <p>Seconds</p>
-          <input type="number" name="seconds">
+          <p class="time-name">Seconds</p>
+          <input class="input-time" type="number" name="seconds">
         </div>
       </div>
-        <button type="button" name="START ACTIVITY">Start Activity</button>
+        <button type="button" class="start-act-btn"name="Start Activity">Start Activity</button>
       </section>
     </main>
     <aside>
