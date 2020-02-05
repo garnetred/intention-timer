@@ -27,6 +27,8 @@ body {
   color: #FFF;
   font-family: 'Montserrat', sans-serif;
   font-weight:400;
+  margin-top: 0;
+  margin-left: 0;
 }
 
 header {
@@ -68,6 +70,7 @@ main {
 .create-new-activity {
   background-color: #46424D;
   padding: 40px 90px;
+  height:400px;
 }
 
 .what-to-accomplish {
