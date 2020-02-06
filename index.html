@@ -29,15 +29,15 @@
           </div>
         </section>
         <p class="what-to-accomplish">What would you like to accomplish during this time?</p>
-        <input type="text" class="accomplish-input">
+        <input id="text-input" type="text" class="accomplish-input">
         <div class="all-time-input">
           <div class="time-input minutes">
             <p class="time-name">Minutes</p>
-            <input class="input-time" type="number" name="minutes">
+            <input id="minutes-input" class="input-time" type="number" name="minutes" min = 0>
           </div>
           <div class="time-input seconds">
             <p class="time-name">Seconds</p>
-            <input class="input-time" type="number" name="seconds">
+            <input id="seconds-input" class="input-time" type="number" name="seconds" min = 0>
           </div>
         </div>
         <button type="button" class="start-act-btn"name="Start Activity">Start Activity</button>
@@ -50,5 +50,5 @@
     </aside>
   </section>
   </body>
-  <link rel="javascript" href="main.js">
+  <script type="text/javascript" src="main.js"></script>
 </html>
