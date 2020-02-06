@@ -43,12 +43,16 @@ header {
 h1 {
   font-weight:300;
   font-size: 22px;
-  letter-spacing: .5px;
+  letter-spacing: 1.5px;
 }
 
 h2 {
   color: #CBC9CF;
-  font-weight:300;
+  font-weight: 300;
+}
+
+p {
+  font-size: 20px;
 }
 
 .whole-page {
@@ -57,20 +61,27 @@ h2 {
 
 main {
   display:flex;
-  width:60%;
+  width: 60%;
   margin: 2%;
   flex-direction: column;
 }
 
 .new-activity {
   width: 100%;
-  padding:10px 0;
+  padding: 10px 0;
+  margin: 0;
 }
 
 .create-new-activity {
   background-color: #46424D;
+  border-radius: 4px;
   padding: 40px 90px;
-  height:400px;
+  height: 580px;
+  position: relative;
+}
+
+.card-shadow {
+  box-shadow: 10px 10px 5px -4px rgba(38,34,45,0.95);
 }
 
 .what-to-accomplish {
@@ -78,28 +89,19 @@ main {
   padding-bottom: 2%;
 }
 
-/* button {
-  width: 150px;
-  background-color: #46424D;
-  border: solid 2px #CBC9CF;
-  border-radius: 20px;
-  height: 75px;
-} */
-
 .category-btn {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-/* .individual-btns {
-  display:flex;
-  flex-direction:row;
-  /* flex:1; */
-/* } */
-
 img {
-  width: 30px;
+  width: 22px;
+  padding-top: 3%;
+}
+
+.labels {
+  margin: 6px;
 }
 
 .study,
@@ -108,10 +110,10 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 150px;
+  width: 157px;
   background-color: #46424D;
   border: solid 2px #CBC9CF;
-  border-radius: 7px;
+  border-radius: 5px;
   height: 67px;
   padding: 2px;
 }
@@ -130,44 +132,53 @@ input {
   width: 100%;
 }
 
-.all-time-input {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
 .time-name {
   padding-top: 14%;
   padding-bottom: 3%;
 }
 
+.time-input {
+  bottom: 212px;
+  position: absolute;
+}
+
+.minutes {
+  left: 90px;
+}
+
+.seconds {
+  right: 90px;
+}
+
 .start-act-btn {
   text-transform: uppercase;
-  color: #2B2733;
-  background-color: #FFF;
-  border-radius: 7px;
-  float: right;
-  height: 50px;
-  margin-top: 8%;
-  font-size: 19px;
-  width: 25%;
+    color: #2B2733;
+    position: absolute;
+    bottom: 100px;
+    right: 93px;
+    background-color: #FFF;
+    border-radius: 4px;
+    height: 38px;
+    font-size: 19px;
+    width: 25%;
 }
 
 aside {
   display: flex;
   width: 40%;
-  border-left: 2px solid #46424D;
+  border-left: 3px solid #46424D;
   flex-direction: column;
+  height: 770px;
 }
 
 .past-activities {
   padding: 25px;
-
 }
 
 /*Class for paragraph that appears if no activities have been logged.*/
 .no-activities {
   text-align: center;
+  color: #CBC9CF;
   padding: 5px;
   font-weight: 300;
   margin: 0;
