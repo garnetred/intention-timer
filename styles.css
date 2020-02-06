@@ -102,6 +102,7 @@ img {
 
 .labels {
   margin: 6px;
+  color: #FFF;
 }
 
 .study,
@@ -116,6 +117,26 @@ img {
   border-radius: 5px;
   height: 67px;
   padding: 2px;
+}
+
+.study:focus{
+  border:2px solid #B3FD78;
+  outline: 0;
+  color: #B3FD78;
+}
+
+p:focus {
+
+}
+
+.meditate:focus {
+  border:2px solid #C278FD;
+  outline: 0;
+}
+
+.exercise:focus {
+  border:2px solid #FD8078;
+  outline: 0;
 }
 
 input {
