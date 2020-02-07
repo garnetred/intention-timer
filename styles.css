@@ -128,36 +128,22 @@ button {
   padding: 2px;
 }
 
-.study:focus,
-.exercise.focus {
-  /* background-repeat: no-repeat;
-  background-size: 22px;
-  background-position: 50% 8%;
-  background-origin: content-box; */
-  outline: 0;
-}
-
-.study:focus{
-  border:2px solid #B3FD78;
+.study.active {
+  border: solid 2px #B3FD78;
   color: #B3FD78;
-}
-
-.meditate:focus {
-  border:2px solid #C278FD;
-  color: #C278FD;
-  /* background-image: url(assets/meditate-active.svg);
-  background-repeat: no-repeat;
-  background-size: 22px;
-  background-position: 50% 8%;
-  background-origin: content-box; */
   outline: 0;
 }
 
-.exercise:focus {
-  border:2px solid #FD8078;
+.meditate.active {
+  border: solid 2px #C278FD;
+  color: #C278FD;
+  outline: 0;
+}
+
+.exercise.active {
+  border: solid 2px #FD8078;
   color: #FD8078;
   outline: 0;
-  /* background-image: url(assets/exercise-active.svg); */
 }
 
 .hidden {
