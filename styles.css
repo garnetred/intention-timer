@@ -128,8 +128,8 @@ button {
   padding: 2px;
 }
 
-.study:focus,
-.exercise.focus {
+.study.active,
+.exercise.active {
   /* background-repeat: no-repeat;
   background-size: 22px;
   background-position: 50% 8%;
@@ -137,12 +137,12 @@ button {
   outline: 0;
 }
 
-.study:focus{
+.study.active {
   border:2px solid #B3FD78;
   color: #B3FD78;
 }
 
-.meditate:focus {
+.meditate.active {
   border:2px solid #C278FD;
   color: #C278FD;
   /* background-image: url(assets/meditate-active.svg);
@@ -153,7 +153,7 @@ button {
   outline: 0;
 }
 
-.exercise:focus {
+.exercise.active {
   border:2px solid #FD8078;
   color: #FD8078;
   outline: 0;
