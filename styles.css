@@ -102,7 +102,6 @@ img {
 
 .labels {
   margin: 6px;
-  color: #FFF;
 }
 
 .study,
@@ -117,25 +116,24 @@ img {
   border-radius: 5px;
   height: 67px;
   padding: 2px;
+  color: #FFF
 }
 
-.study:focus{
-  border:2px solid #B3FD78;
-  outline: 0;
+.study.active {
+  border: solid 2px #B3FD78;
   color: #B3FD78;
-}
-
-p:focus {
-
-}
-
-.meditate:focus {
-  border:2px solid #C278FD;
   outline: 0;
 }
 
-.exercise:focus {
-  border:2px solid #FD8078;
+.meditate.active {
+  border: solid 2px #C278FD;
+  color: #C278FD;
+  outline: 0;
+}
+
+.exercise.active {
+  border: solid 2px #FD8078;
+  color: #FD8078;
   outline: 0;
 }
 
