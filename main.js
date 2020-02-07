@@ -13,12 +13,12 @@ secondsInput.addEventListener('keyup', onlyNumbersCheck);
 // studyButton.addEventListener('click', changeStudyBox);
 // meditateButton.addEventListener('click', changeMeditateBox);
 // exerciseButton.addEventListener('click', changeExerciseBox);
-studyButton.addEventListener('focus', changeStudyColors, true);
-meditateButton.addEventListener('focus', changeMeditateColors, true);
-exerciseButton.addEventListener('focus', changeExerciseColors, true);
-studyButton.addEventListener('blur', inactiveButtons, true);
-meditateButton.addEventListener('blur', inactiveButtons, true);
-exerciseButton.addEventListener('blur', inactiveButtons, true);
+studyButton.addEventListener('click', changeStudyColors, true);
+// meditateButton.addEventListener('click', changeMeditateColors, true);
+// exerciseButton.addEventListener('click', changeExerciseColors, true);
+// studyButton.addEventListener('blur', inactiveButtons, true);
+// meditateButton.addEventListener('blur', inactiveButtons, true);
+// exerciseButton.addEventListener('blur', inactiveButtons, true);
 // window.addEventListener('load', inactiveButtons);
 
 function onlyNumbersCheck() {
@@ -30,56 +30,6 @@ function onlyNumbersCheck() {
     secondsInput.value = "";
   }
 }
-//Could create a class for each button and add or remove them?
-// function changeStudyColors() {
-//   if (document.activeElement!=studyButton) {
-//     studyButton.firstElementChild.src="assets/study.svg";
-//   } else {
-//     studyButton.firstElementChild.src="assets/study-active.svg"
-//   }
-// }
-//
-// function changeExerciseColors() {
-//   if (document.activeElement.classList.contains="exercise") {
-//     exerciseButton.firstElementChild.src="assets/exercise-active.svg";
-//   } else {
-//     exerciseButton.firstElementChild.src="assets/exercise.svg";
-//   }
-// }
-//
-// function changeMeditateColors() {
-//   if (document.activeElement.classList.contains="meditate") {
-//     meditateButton.firstElementChild.src="assets/meditate-active.svg";
-//   } else {
-//     meditateButton.firstElementChild.src="assets/meditate.svg";
-//   }
-// }
-
-
-// function changeStudyColors() {
-//   studyButton.firstElementChild.src = "assets/study-active.svg";
-// }
-//
-function inactiveButtons() {
-  // document.activeElement.blur();
-  console.log("active elements have been blurred");
-  exerciseButton.firstElementChild.src="assets/exercise.svg";
-  meditateButton.firstElementChild.src="assets/meditate.svg";
-  studyButton.firstElementChild.src="assets/study.svg";
-
-}
-
-// function changeColorsStudy() {
-//   studyImg.classList.add("hidden");
-// }
-//
-// function changeColorsMeditate() {
-//   meditateImg.classList.add("hidden");
-// }
-//
-// function changeColorsExercise() {
-//   exerciseImg.classList.add("hidden");
-// }
 
 function changeStudyColors() {
   if (document.activeElement==studyButton) {
@@ -93,28 +43,28 @@ function changeStudyColors() {
 }
   }
 
-function changeMeditateColors() {
-  if (document.activeElement==meditateButton) {
-    meditateButton.firstElementChild.src="assets/meditate-active.svg"
-    studyButton.firstElementChild.src="assets/study.svg";
-    exerciseButton.firstElementChild.src="assets/exercise.svg";
-    console.log("the meditate button has focus right now");
-  } else {
-    meditateButton.firstElementChild.src="assets/meditate.svg";
-    console.log("no focus on meditate button right now!");
-  }
-}
-function changeExerciseColors() {
-  if (document.activeElement==exerciseButton) {
-    exerciseButton.firstElementChild.src="assets/exercise-active.svg"
-    meditateButton.firstElementChild.src="assets/meditate.svg";
-    studyButton.firstElementChild.src="assets/study.svg";
-    console.log("the exercise button has focus right now");
-  }   else {
-    exerciseButton.firstElementChild.src="assets/exercise.svg";
-    console.log("no focus on exercise button right now!");
-  }
-}
+// function changeMeditateColors() {
+//   if (document.activeElement==meditateButton) {
+//     meditateButton.firstElementChild.src="assets/meditate-active.svg"
+//     studyButton.firstElementChild.src="assets/study.svg";
+//     exerciseButton.firstElementChild.src="assets/exercise.svg";
+//     console.log("the meditate button has focus right now");
+//   } else {
+//     meditateButton.firstElementChild.src="assets/meditate.svg";
+//     console.log("no focus on meditate button right now!");
+//   }
+// }
+// function changeExerciseColors() {
+//   if (document.activeElement==exerciseButton) {
+//     exerciseButton.firstElementChild.src="assets/exercise-active.svg"
+//     meditateButton.firstElementChild.src="assets/meditate.svg";
+//     studyButton.firstElementChild.src="assets/study.svg";
+//     console.log("the exercise button has focus right now");
+//   }   else {
+//     exerciseButton.firstElementChild.src="assets/exercise.svg";
+//     console.log("no focus on exercise button right now!");
+//   }
+// }
 
 // function changeStudyColors() {
 //   if (studyButton.classList.contains("active")) {
