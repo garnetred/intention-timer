@@ -9,9 +9,41 @@ var startActBtn = document.getElementById("start-act-btn");
 var activeBtn = document.querySelector(".active");
 var warningPopUp = document.getElementById("warning-pop-up");
 
+
 minutesInput.addEventListener('keyup', onlyNumbersCheck);
 secondsInput.addEventListener('keyup', onlyNumbersCheck);
 document.addEventListener('click', handleClick);
+
+function handleClick(event) {
+  if (event.target.classList.contains('study')) {
+    changeColors(event);
+  } else if (event.target.classList.contains('meditate')) {
+    changeColors(event);
+  } else if (event.target.classList.contains('exercise')) {
+    changeColors(event);
+  }
+}
+
+function changeColors(event) {
+  var clickedId = event.target.id;
+  if(event.target.classList.contains('active')) {
+    event.target.classList.remove('active');
+    event.target.firstElementChild.src = `./assets/${clickedId}.svg`;
+  } else {
+    event.target.classList.add('active');
+    event.target.firstElementChild.src = `./assets/${clickedId}-active.svg`;
+  }
+  removeActiveState(clickedId);
+}
+
+function removeActiveState(clickedId) {
+  for (var i = 0; i < boxArray.length; i++) {
+    if (boxArray[i].id !== clickedId) {
+      boxArray[i].classList.remove('active');
+      boxArray[i].firstElementChild.src = `./assets/${boxArray[i].id}.svg`;
+    }
+  }
+}
 
 function handleClick(event) {
   if (event.target.classList.contains('study')) {
@@ -71,3 +103,4 @@ function checkCategoryBtns() {
     return false
   }
 }
+
