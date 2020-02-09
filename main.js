@@ -5,12 +5,11 @@ var studyButton = document.getElementById("study");
 var meditateButton = document.getElementById("meditate");
 var exerciseButton = document.getElementById("exercise");
 var boxArray = [studyButton, meditateButton, exerciseButton];
+var startActBtn = document.getElementById("start-act-btn");
+var activeBtn = document.querySelector(".active");
 
 minutesInput.addEventListener('keyup', onlyNumbersCheck);
 secondsInput.addEventListener('keyup', onlyNumbersCheck);
-// studyButton.addEventListener('click', changeColors)
-// meditateButton.addEventListener('click', changeColors)
-// exerciseButton.addEventListener('click', changeColors)
 document.addEventListener('click', handleClick);
 
 function handleClick(event) {
@@ -20,6 +19,8 @@ function handleClick(event) {
     changeColors(event);
   } else if (event.target.classList.contains('exercise')) {
     changeColors(event);
+  } else if (event.target.classList.contains('start-act-btn')) {
+    checkInputFeilds(event)
   }
 }
 
@@ -44,12 +45,16 @@ function removeActiveState(clickedId) {
   }
 }
 
-function onlyNumbersCheck() {
-  var validChars = "0123456789.";
-  if (minutesInput.value !== validChars) {
-    minutesInput.value = "";
-  }
-  if (secondsInput.value !== validChars) {
-    secondsInput.value = "";
+function onlyNumbersCheck(event) {
+  var replaceValue = minutesInput.value.replace("e", "");
+  console.log(minutesInput.value);
+  minutesInput.value = replaceValue;
+  console.log(minutesInput.value);
+}
+
+function checkInputFeilds(e) {
+  e.preventDefault();
+  if ((minutesInput.value === 0) || (secondsInput.value === 0) || (textInput.value === 0)) {
+    alert("Did it!!")
   }
 }

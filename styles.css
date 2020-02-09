@@ -10,39 +10,33 @@ Error: #EFB7EC
 font-family: 'Montserrat', sans-serif;
 */
 
-/* * {
-  border: none;
-  margin: 0;
-  padding: 0;
-} */
-
 html {
   border: none;
 }
 
 body {
   background-color: #2B2733;
-  height: 100%;
-  width: 100%;
   color: #FFF;
   font-family: 'Montserrat', sans-serif;
   font-weight:400;
-  margin-top: 0;
+  height: 100%;
   margin-left: 0;
+  margin-top: 0;
+  width: 100%;
 }
 
 header {
+  background-color: #46424D;
   color: #FFF;
-  width: 100%;
   display: flex;
   justify-content: center;
-  background-color: #46424D;
   text-transform: uppercase;
+  width: 100%;
 }
 
 h1 {
-  font-weight:300;
   font-size: 22px;
+  font-weight:300;
   letter-spacing: 1.5px;
 }
 
@@ -61,22 +55,22 @@ p {
 
 main {
   display:flex;
-  width: 60%;
-  margin: 2%;
   flex-direction: column;
+  margin: 2%;
+  width: 60%;
 }
 
 .new-activity {
-  width: 100%;
-  padding: 10px 0;
   margin: 0;
+  padding: 10px 0;
+  width: 100%;
 }
 
 .create-new-activity {
   background-color: #46424D;
   border-radius: 4px;
-  padding: 40px 90px;
   height: 580px;
+  padding: 40px 90px;
   position: relative;
 }
 
@@ -85,8 +79,8 @@ main {
 }
 
 .what-to-accomplish {
-  padding-top: 5%;
   padding-bottom: 2%;
+  padding-top: 5%;
 }
 
 .category-btn {
@@ -96,8 +90,8 @@ main {
 }
 
 img {
-  width: 22px;
   padding-top: 3%;
+  width: 22px;
 }
 
 .labels {
@@ -107,16 +101,16 @@ img {
 .study,
 .meditate,
 .exercise {
+  align-items: center;
+  background-color: #46424D;
+  border-radius: 5px;
+  border: solid 2px #CBC9CF;
+  color: #FFF;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 157px;
-  background-color: #46424D;
-  border: solid 2px #CBC9CF;
-  border-radius: 5px;
   height: 67px;
   padding: 2px;
-  color: #FFF
+  width: 157px;
 }
 
 .study.active {
@@ -153,8 +147,8 @@ input {
 }
 
 .time-name {
-  padding-top: 14%;
   padding-bottom: 3%;
+  padding-top: 14%;
 }
 
 .time-input {
@@ -170,36 +164,50 @@ input {
   right: 90px;
 }
 
+.warning-pop-up {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.warning-img {
+  padding: 5px;
+}
+
+.warning {
+  color: #EFB7EC;
+  font-size: 94%;
+  margin: 13px 10px;
+}
+
 .start-act-btn {
+  background-color: #FFF;
+  border-radius: 4px;
+  bottom: 100px;
+  color: #2B2733;
+  font-size: 19px;
+  height: 38px;
+  position: absolute;
+  right: 93px;
   text-transform: uppercase;
-    color: #2B2733;
-    position: absolute;
-    bottom: 100px;
-    right: 93px;
-    background-color: #FFF;
-    border-radius: 4px;
-    height: 38px;
-    font-size: 19px;
-    width: 25%;
+  width: 25%;
 }
 
 aside {
   display: flex;
-  width: 40%;
   border-left: 3px solid #46424D;
   flex-direction: column;
   height: 770px;
+  width: 40%;
 }
 
 .past-activities {
   padding: 25px;
 }
 
-/*Class for paragraph that appears if no activities have been logged.*/
 .no-activities {
-  text-align: center;
   color: #CBC9CF;
-  padding: 5px;
   font-weight: 300;
   margin: 0;
+  padding: 5px;
+  text-align: center;
 }
