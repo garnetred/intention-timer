@@ -8,9 +8,11 @@ var boxArray = [studyButton, meditateButton, exerciseButton];
 var startActBtn = document.getElementById('start-act-btn');
 var activeBtn = document.querySelector('.active');
 var warningPopUp = document.getElementById('warning-pop-up');
-var timerPage = document.getElementById('create-new-activity');
-var timerCircle = document.getElementById('timer-circle');
+var timerPage = document.querySelector('.create-new-activity');
+var currentActivityHeader = document.querySelector('.new-activity')
 var circleColor = null;
+// var timeMin = minutesInput.value;
+// var timeSec = secondsInput.value;
 
 minutesInput.addEventListener('keyup', onlyNumbersCheck);
 secondsInput.addEventListener('keyup', onlyNumbersCheck);
@@ -19,17 +21,23 @@ document.addEventListener('click', handleClick);
 function handleClick(event) {
   if (event.target.classList.contains('study')) {
     changeColors(event);
-    circleColor = "green";
+    return circleColor = 'green';
+    console.log(`${circleColor}`);
   } else if (event.target.classList.contains('meditate')) {
     changeColors(event);
-    circleColor = "purple";
+    return circleColor = 'purple';
+    console.log(`${circleColor}`)
   } else if (event.target.classList.contains('exercise')) {
     changeColors(event);
-    circleColor = "pink";
+    return circleColor = 'red';
+    console.log(`${circleColor}`)
   } else if (event.target.classList.contains('start-act-btn')) {
     checkInputFields(event);
     generateTimerPage();
   }
+  // else if (event.target.classList.contains("timer-circle")) {
+  //   countdownTimer();
+  // }
 }
 
 function changeColors(event) {
@@ -80,7 +88,6 @@ function checkCategoryBtns() {
 }
 
 function generateTimerPage() {
-  changeCircleColor()
   timerPage.innerHTML = `<p class="user-activity" id="user-activity">${textInput.value}</p>
   <p class="timer" id="timer"><span id="minutes">${minutesInput.value}:</span><span id="seconds">${secondsInput.value}</span></p>
   <div class="timer-circle-holder" id="timer-circle-holder">
@@ -88,14 +95,21 @@ function generateTimerPage() {
       <p class="start-complete" id="start-complete">start</p>
     </div>
   </div>`
+  currentActivityHeader.innerText = "Current Activity";
+  changeCircleColor();
 }
 
 function changeCircleColor() {
+  var timerCircle = document.querySelector('#timer-circle');
   if (circleColor === 'green') {
     timerCircle.classList.add('green-circle');
   } else if (circleColor === 'purple') {
     timerCircle.classList.add('purple-circle');
-  } else if (circleColor === 'pink') {
-    timerCircle.classList.add('pink-circle');
+  } else if (circleColor === 'red') {
+    timerCircle.classList.add('red-circle');
   }
 }
+
+// function countdownTimer() {
+//
+// }

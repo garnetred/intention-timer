@@ -141,7 +141,7 @@ button {
 }
 
 .exercise.active {
-  border: solid 2px #FD8078;
+  border: solid 2px ;
   color: #FD8078;
   outline: 0;
 }
@@ -223,6 +223,7 @@ aside {
   justify-content: center;
   margin-top: 11px;
   margin-bottom: 0;
+  text-transform: capitalize;
 }
 
 .timer {
@@ -251,15 +252,15 @@ aside {
 }
 
 .green-circle {
-  border: solid 2px #B3FD78;
+  border: solid 3px #B3FD78;
 }
 
 .purple-circle {
-  border: solid 2px #C278FD;
+  border: solid 3px #C278FD;
 }
 
-.pink-circle {
-  border: solid 2px #FD8078;
+.red-circle {
+  border: solid 3px #FD8078;
 }
 
 .start-complete {
