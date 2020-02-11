@@ -11,14 +11,13 @@ var warningPopUp = document.getElementById('warning-pop-up');
 var timerPage = document.querySelector('.create-new-activity');
 var currentActivityHeader = document.querySelector('.new-activity')
 var circleColor = null;
-// var timeMin = minutesInput.value;
-// var timeSec = secondsInput.value;
 
 minutesInput.addEventListener('keyup', onlyNumbersCheck);
 secondsInput.addEventListener('keyup', onlyNumbersCheck);
 document.addEventListener('click', handleClick);
 
 function handleClick(event) {
+  event.preventDefault();
   if (event.target.classList.contains('study')) {
     changeColors(event);
     return circleColor = 'green';
@@ -34,10 +33,11 @@ function handleClick(event) {
   } else if (event.target.classList.contains('start-act-btn')) {
     checkInputFields(event);
     generateTimerPage();
+  } else if (event.target.classList.contains("timer-circle")) {
+    var minInt = parseInt(minutesInput.value);
+    var secInt = parseInt(secondsInput.value);
+    countdownTimer(minInt, secInt);
   }
-  // else if (event.target.classList.contains("timer-circle")) {
-  //   countdownTimer();
-  // }
 }
 
 function changeColors(event) {
@@ -71,7 +71,7 @@ function onlyNumbersCheck() {
 function checkInputFields(event) {
   event.preventDefault();
   var areBtnsClicked = checkCategoryBtns();
-  if (minutesInput.value == 0 || secondsInput.value == 0 || textInput.value == 0 || areBtnsClicked === false){
+  if (!minutesInput.value || !secondsInput.value|| !textInput.value || areBtnsClicked === false){
     warningPopUp.innerHTML = `<img src="./assets/warning.svg" class="warning-img" alt="warning img">
     <p class="warning">Please fill out all information!</p>`;
   } else if (minutesInput.value > 0 && secondsInput.value > 0 && textInput.value > 0) {
@@ -88,8 +88,20 @@ function checkCategoryBtns() {
 }
 
 function generateTimerPage() {
+  var minInt = parseInt(minutesInput.value);
+  var secInt = parseInt(secondsInput.value);
+  var time = secInt + (minInt * 60);
+  repopulateTimerPage(time);
+  changeCircleColor();
+}
+
+function repopulateTimerPage(time) {
+  var remainingSec = time % 60;
+  var remainingMin = Math.floor(time/60);
+  var minuteHolder = parseInt(remainingMin);
+  var secHolder = `${remainingSec < 10 ? '0' : '' }${remainingSec}`;
   timerPage.innerHTML = `<p class="user-activity" id="user-activity">${textInput.value}</p>
-  <p class="timer" id="timer"><span id="minutes">${minutesInput.value}:</span><span id="seconds">${secondsInput.value}</span></p>
+  <p class="timer" id="timer"><span id="minutes">${minuteHolder}:</span><span id="seconds">${secHolder}</span></p>
   <div class="timer-circle-holder" id="timer-circle-holder">
     <div class="timer-circle" id="timer-circle" role="button">
       <p class="start-complete" id="start-complete">start</p>
@@ -110,6 +122,16 @@ function changeCircleColor() {
   }
 }
 
-// function countdownTimer() {
-//
-// }
+function countdownTimer(minInt, secInt) {
+  var time = (minInt * 60) + secInt;
+  var intervalId = setInterval(function() {
+    if (time < 0) {
+      currentActivityHeader.innerText = "Completed Activity";
+      clearInterval(intervalId);
+      return alert("Congratulations!");
+    }
+    repopulateTimerPage(time);
+    time--;
+  }
+  ,1000)
+}
