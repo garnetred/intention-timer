@@ -251,6 +251,10 @@ aside {
   border-radius: 100%;
 }
 
+.timer-circle:active {
+  outline: thick double blue;
+}
+
 .green-circle {
   border: solid 3px #B3FD78;
 }
