@@ -206,6 +206,7 @@ aside {
 
 .past-activities {
   padding: 25px;
+  margin: 0;
 }
 
 /*Class for paragraph that appears if no activities have been logged.*/
@@ -273,4 +274,61 @@ aside {
   display: flex;
   font-size: 2em;
   margin-top: 37%;
+}
+
+.log-activity-holder {
+  display: flex;
+  justify-content: center;
+  margin-top: 8%;
+}
+
+.log-activity-btn {
+  text-transform: uppercase;
+  color: #2B2733;
+  background-color: #FFF;
+  border-radius: 4px;
+  height: 38px;
+  font-size: 19px;
+  width: 45%;
+}
+
+.create-new-activity-btn {
+  text-transform: uppercase;
+  color: #2B2733;
+  background-color: #FFF;
+  border-radius: 4px;
+  height: 38px;
+  font-size: 19px;
+  position: absolute;
+  left: 250px;
+  top: 100px;
+  width: 40%;
+}
+
+.activity-log-card {
+  box-shadow: 10px 10px 5px -4px rgba(38,34,45,0.95);
+  background-color: #46424D;
+  width: 84%;
+  margin-left: 7%;
+  border-radius: 6px;
+  height: 150%
+}
+
+.log-card-border {
+  border-right: solid 3px #FFF;
+  /* line-height:10px; */
+}
+
+.card-heading {
+  margin:0;
+  padding-left: 5%;
+}
+
+.time-card {
+  margin:0;
+  padding-left: 5%;
+}
+
+.activity-card-text {
+  padding: 25px 10px;
 }

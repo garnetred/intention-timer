@@ -37,6 +37,8 @@ function handleClick(event) {
     var minInt = parseInt(minutesInput.value);
     var secInt = parseInt(secondsInput.value);
     countdownTimer(minInt, secInt);
+  } else if (event.target.classList.contains('log-activity-btn')) {
+    logActivity();
   }
 }
 
@@ -106,6 +108,8 @@ function repopulateTimerPage(time) {
     <div class="timer-circle" id="timer-circle" role="button">
       <p class="start-complete" id="start-complete">start</p>
     </div>
+  </div>
+  <div class="log-activity-holder">
   </div>`
   currentActivityHeader.innerText = "Current Activity";
   changeCircleColor();
@@ -128,10 +132,26 @@ function countdownTimer(minInt, secInt) {
     if (time < 0) {
       currentActivityHeader.innerText = "Completed Activity";
       clearInterval(intervalId);
-      return alert("Congratulations!");
+      return completedTimer();
     }
     repopulateTimerPage(time);
     time--;
   }
   ,1000)
+}
+
+function completedTimer() {
+  var startComplete = document.querySelector('#start-complete');
+  var logActivityHolder = document.querySelector('.log-activity-holder');
+  logActivityHolder.innerHTML = `<button class="log-activity-btn">Log Activity</button>`;
+  startComplete.innerHTML = "Complete!"
+}
+
+function logActivity() {
+  var pastActivitiesLog = document.querySelector('.past-activities-log');
+  pastActivitiesLog.innerHTML = `<section class="activity-log-card"><div class = "activity-card-text"><div class=log-card-border><h1 class="card-heading">Meditate</h1>
+  <p class="time-card">Time</p></div><p class="time-card">Activity Name</p></div></section>`
+  timerPage.innerHTML = `<button class="create-new-activity-btn">Create A New Activity</button>`;
+  currentActivityHeader.innerText = "Completed Activity";
+
 }
