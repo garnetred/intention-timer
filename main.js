@@ -177,7 +177,7 @@ function logActivity() {
   var minInt = parseInt(minutesInput.value);
   var secInt = parseInt(secondsInput.value);
   var pastActivitiesLog = document.querySelector('.past-activities-log');
-  var activityLogCard = document.querySelector('.activity-log-card')
+  // var activityLogCard = document.querySelector('.activity-log-card')
   var logCardBorder = document.querySelector('.log-card-border');
   var createNewActButton = document.querySelector('.create-new-activity-btn');
   var placeholderText = document.querySelector('.no-activities');
@@ -185,7 +185,7 @@ function logActivity() {
   // cardHeading.innerText = `${categoryName}`;
   // timeCard.innerText = `${minInt} min ${secInt} seconds`;
   // logCardBorder.setAttribute('id',`${categoryColor}`)
-  activityLogCard.classList.remove('hidden');
+  // activityLogCard.classList.remove('hidden');
   placeholderText.classList.add('hidden');
   completedActivityHeader.classList.remove('hidden');
   newActivityHeader.classList.add('hidden');
@@ -196,8 +196,8 @@ function logActivity() {
 }
 
 function createNewCards() {
-  var pastActivitiesLog = document.querySelector('.past-activities-log');
-  class logCards {
+
+  class Card {
     constructor() {
       // var activityNameCard = document.querySelector('.activity-name-card');
       // var timeCard = document.querySelector('.time-card');
@@ -210,16 +210,20 @@ function createNewCards() {
       console.log(this.sender)
   }
 }
-  var loggedCard = new logCards();
+  // var loggedCard = new logCards();
+  var pastActivitiesLog = document.querySelector('.past-activities-log');
+  var logged = new Card
   var newCard = document.createElement('section');
+  var minInt = parseInt(minutesInput.value);
+  var secInt = parseInt(secondsInput.value);
   newCard.classList.add('activity-log-card');
-  newCard.innerHTML = `<div class = "activity-card-text">
-        <div class=log-card-border id=>
-        <h1 class="card-heading"></h1>
-        <p class="time-card"></p>
-      </div>
-      <p class="activity-name-card"></p>
-        </div>`
-  pastActivitiesLog.appendChild(loggedCard);
+  newCard.innerHTML =`<div class = "activity-card-text">
+  <div class=log-card-border id=${categoryColor}>
+  <h1 class="card-heading">${categoryName}</h1>
+  <p class="time-card">${minInt} min ${secInt} seconds</p>
+  </div>
+  <p class="activity-name-card">${textInput.value}</p>
+  </div>`
+  pastActivitiesLog.appendChild(newCard);
 
 }

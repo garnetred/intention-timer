@@ -297,8 +297,9 @@ aside {
   background-color: #46424D;
   border-radius: 6px;
   box-shadow: 10px 10px 5px -4px rgba(38,34,45,0.95);
-  height: 99%;
+  height: 115px;
   margin-left: 7%;
+  margin-bottom: 7%;
   width: 84%;
 }
 
