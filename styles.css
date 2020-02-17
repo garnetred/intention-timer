@@ -41,7 +41,7 @@ p {
 }
 
 main {
-  display:flex;
+  display: flex;
   flex-direction: column;
   margin: 2%;
   width: 60%;
@@ -269,15 +269,15 @@ aside {
 .log-activity-button {
   background-color: #FFF;
   border-radius: 4px;
+  bottom: 15%;
   color: #2B2733;
   font-size: 19px;
   height: 38px;
+  justify-content: center;
+  left: 33%;
+  position: absolute;
   text-transform: uppercase;
   width: 35%;
-  justify-content: center;
-  position: absolute;
-  left: 33%;
-  bottom: 15%;
 }
 
 .create-new-activity-btn {
@@ -298,8 +298,8 @@ aside {
   border-radius: 6px;
   box-shadow: 10px 10px 5px -4px rgba(38,34,45,0.95);
   height: 115px;
-  margin-left: 7%;
   margin-bottom: 7%;
+  margin-left: 7%;
   width: 84%;
 }
 
@@ -340,7 +340,7 @@ aside {
   color: #CBC9CF;
   font-size: 1em;
   font-weight: 300;
-  margin: 0;
+  margin-top: 16px;
   padding-left: 1%;
   text-transform: capitalize;
 }
