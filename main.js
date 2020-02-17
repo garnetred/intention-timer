@@ -125,6 +125,8 @@ function repopulateTimerPage(time) {
   var userActivity = document.querySelector('.user-activity');
   var minutesDisplay = document.getElementById('minutes');
   var secondsDisplay = document.getElementById('seconds');
+  var startComplete = document.querySelector('#start-complete');
+  startComplete.innerHTML = "Start";
   userActivity.innerText = `${textInput.value}`;
   minutesDisplay.innerText = `${minuteHolder}:`;
   secondsDisplay.innerText = `${secHolder}`;
