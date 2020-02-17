@@ -9,7 +9,9 @@ var startActBtn = document.querySelector('.start-act-btn');
 var activeBtn = document.querySelector('.active');
 var errorMessage = document.querySelector('.error');
 var timerPage = document.querySelector('.create-new-activity');
-var currentActivityHeader = document.querySelector('.new-activity')
+var newActivityHeader = document.querySelector('.new-activity');
+var currentActivityHeader = document.querySelector('.current-activity');
+var completedActivityHeader = document.querySelector('.completed-activity');
 var circleColor = null;
 var categoryName = null;
 var categoryColor = null;
@@ -118,7 +120,9 @@ function repopulateTimerPage(time) {
   </div>
   <div class="log-activity-holder">
   </div>`
-  currentActivityHeader.innerText = "Current Activity";
+  currentActivityHeader.classList.remove('hidden');
+  newActivityHeader.classList.add('hidden');
+  completedActivityHeader.classList.add('hidden');
   changeCircleColor();
 }
 
@@ -140,7 +144,9 @@ function countdownTimer(minInt, secInt) {
   var time = (minInt * 60) + secInt;
   var intervalId = setInterval(function() {
     if (time < 0) {
-      currentActivityHeader.innerText = "Completed Activity";
+      completedActivityHeader.classList.remove('hidden');
+      newActivityHeader.classList.add('hidden');
+      currentActivityHeader.classList.add('hidden');
       clearInterval(intervalId);
       return completedTimer();
     }
@@ -164,7 +170,9 @@ function logActivity() {
   pastActivitiesLog.innerHTML = `<section class="activity-log-card"><div class = "activity-card-text"><div class=log-card-border id=${categoryColor}><h1 class="card-heading">${categoryName}</h1>
   <p class="time-card">${minInt} min ${secInt} seconds</p></div><p class="activity-name-card">${textInput.value}</p></div></section>`
   timerPage.innerHTML = `<button class="create-new-activity-btn">Create A New Activity</button>`;
-  currentActivityHeader.innerText = "Completed Activity";
+  completedActivityHeader.classList.remove('hidden');
+  newActivityHeader.classList.add('hidden');
+  currentActivityHeader.classList.add('hidden');
 }
 
 function returnToHomePage() {
