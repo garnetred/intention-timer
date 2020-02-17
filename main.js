@@ -5,9 +5,9 @@ var studyButton = document.getElementById("study");
 var meditateButton = document.getElementById("meditate");
 var exerciseButton = document.getElementById("exercise");
 var boxArray = [studyButton, meditateButton, exerciseButton];
-var startActBtn = document.getElementById('start-act-btn');
+var startActBtn = document.querySelector('.start-act-btn');
 var activeBtn = document.querySelector('.active');
-var warningPopUp = document.getElementById('warning-pop-up');
+var errorMessage = document.querySelector('.error');
 var timerPage = document.querySelector('.create-new-activity');
 var currentActivityHeader = document.querySelector('.new-activity')
 var circleColor = null;
@@ -34,7 +34,6 @@ function handleClick(event) {
     categoryName = 'Exercise';
   } else if (event.target.classList.contains('start-act-btn')) {
     checkInputFields(event);
-    generateTimerPage();
   } else if (event.target.classList.contains("timer-circle")) {
     var minInt = parseInt(minutesInput.value);
     var secInt = parseInt(secondsInput.value);
@@ -76,13 +75,16 @@ function onlyNumbersCheck() {
 }
 
 function checkInputFields(event) {
-  event.preventDefault();
+  // event.preventDefault();
   var areBtnsClicked = checkCategoryBtns();
-  if (!minutesInput.value || !secondsInput.value || !textInput.value || areBtnsClicked === false){
-    warningPopUp.innerHTML = `<img src="./assets/warning.svg" class="warning-img" alt="warning img">
-    <p class="warning">Please fill out all information!</p>`;
-  } else if (minutesInput.value > 0 && secondsInput.value > 0 && textInput.value > 0) {
-
+  if (!minutesInput.value || !secondsInput.value || !textInput.value || areBtnsClicked===false) {
+    errorMessage.classList.remove('hidden');
+    console.log("error");
+    return;
+    checkInputFields();
+  } else {
+    console.log('success')
+    generateTimerPage();
   }
 }
 
@@ -110,9 +112,9 @@ function repopulateTimerPage(time) {
   timerPage.innerHTML = `<p class="user-activity" id="user-activity">${textInput.value}</p>
   <p class="timer" id="timer"><span id="minutes">${minuteHolder}:</span><span id="seconds">${secHolder}</span></p>
   <div class="timer-circle-holder" id="timer-circle-holder">
-    <div class="timer-circle" id="timer-circle" role="button">
+    <button class="timer-circle" id="timer-circle">
       <p class="start-complete" id="start-complete">start</p>
-    </div>
+    </button>
   </div>
   <div class="log-activity-holder">
   </div>`
