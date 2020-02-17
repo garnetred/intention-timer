@@ -30,18 +30,20 @@
         </section>
         <p class="what-to-accomplish">What would you like to accomplish during this time?</p>
         <input id="text-input" type="text" class="accomplish-input">
-        <div class="all-time-input">
-          <div class="time-input minutes">
+        <section class="all-time-input">
+          <section class="time-input minutes">
             <p class="time-name">Minutes</p>
             <input id="minutes-input" class="input-time" type="number" name="minutes" min=0 placeholder="0">
-          </div>
-          <div class="time-input seconds">
+          </section>
+          <section class="time-input seconds">
             <p class="time-name">Seconds</p>
             <input id="seconds-input" class="input-time" type="number" name="seconds" min=0 placeholder="0">
-          </div>
-        </div>
-        <div class="warning-pop-up">
-        </div>
+          </section>
+        </section>
+        <section class="error hidden">
+          <img src="./assets/warning.svg" class="warning-img" alt="warning img">
+          <p class="warning">A description is required.</p>
+        </section>
         <button type="button" class="start-act-btn"name="Start Activity">Start Activity</button>
       </section>
     </main>
