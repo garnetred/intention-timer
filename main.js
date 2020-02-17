@@ -8,7 +8,11 @@ var boxArray = [studyButton, meditateButton, exerciseButton];
 var startActBtn = document.querySelector('.start-act-btn');
 var activeBtn = document.querySelector('.active');
 var errorMessage = document.querySelector('.error');
-var timerPage = document.querySelector('.create-new-activity');
+// var pageBackground = document.querySelector('.page-background');
+var timerPage = document.querySelector('.timer-page')
+// var logActivityHolder = document.querySelector('.log-activity-holder');
+var logActivityBtn = document.querySelector('.log-activity-button');
+var homePage = document.querySelector('.home-page');
 var newActivityHeader = document.querySelector('.new-activity');
 var currentActivityHeader = document.querySelector('.current-activity');
 var completedActivityHeader = document.querySelector('.completed-activity');
@@ -40,10 +44,16 @@ function handleClick(event) {
     var minInt = parseInt(minutesInput.value);
     var secInt = parseInt(secondsInput.value);
     countdownTimer(minInt, secInt);
-  } else if (event.target.classList.contains('log-activity-btn')) {
+  } else if (event.target.classList.contains('log-activity-button')) {
     logActivity();
   } else if (event.target.classList.contains('create-new-activity-btn')) {
-    returnToHomePage(event);
+    var createNewActButton = document.querySelector('.create-new-activity-btn');
+    createNewActButton.classList.add('hidden');
+    homePage.classList.remove('hidden');
+    minutesInput.value = '';
+    secondsInput.value = '';
+    textInput.value = '';
+    document.activeElement = null;
   }
 }
 
@@ -86,6 +96,7 @@ function checkInputFields(event) {
     checkInputFields();
   } else {
     console.log('success')
+    homePage.classList.add('hidden');
     generateTimerPage();
   }
 }
@@ -111,15 +122,15 @@ function repopulateTimerPage(time) {
   var remainingMin = Math.floor(time/60);
   var minuteHolder = parseInt(remainingMin);
   var secHolder = `${remainingSec < 10 ? '0' : '' }${remainingSec}`;
-  timerPage.innerHTML = `<p class="user-activity" id="user-activity">${textInput.value}</p>
-  <p class="timer" id="timer"><span id="minutes">${minuteHolder}:</span><span id="seconds">${secHolder}</span></p>
-  <div class="timer-circle-holder" id="timer-circle-holder">
-    <button class="timer-circle" id="timer-circle">
-      <p class="start-complete" id="start-complete">start</p>
-    </button>
-  </div>
-  <div class="log-activity-holder">
-  </div>`
+  var userActivity = document.querySelector('.user-activity');
+  var minutesDisplay = document.getElementById('minutes');
+  var secondsDisplay = document.getElementById('seconds');
+  userActivity.innerText = `${textInput.value}`;
+  minutesDisplay.innerText = `${minuteHolder}:`;
+  secondsDisplay.innerText = `${secHolder}`;
+  timerPage.classList.remove('hidden');
+  // logActivityHolder.classList.add('hidden');
+  logActivityBtn.classList.add('hidden');
   currentActivityHeader.classList.remove('hidden');
   newActivityHeader.classList.add('hidden');
   completedActivityHeader.classList.add('hidden');
@@ -158,8 +169,7 @@ function countdownTimer(minInt, secInt) {
 
 function completedTimer() {
   var startComplete = document.querySelector('#start-complete');
-  var logActivityHolder = document.querySelector('.log-activity-holder');
-  logActivityHolder.innerHTML = `<button class="log-activity-btn">Log Activity</button>`;
+  logActivityBtn.classList.remove('hidden');
   startComplete.innerHTML = "Complete!"
 }
 
@@ -167,47 +177,49 @@ function logActivity() {
   var minInt = parseInt(minutesInput.value);
   var secInt = parseInt(secondsInput.value);
   var pastActivitiesLog = document.querySelector('.past-activities-log');
-  pastActivitiesLog.innerHTML = `<section class="activity-log-card"><div class = "activity-card-text"><div class=log-card-border id=${categoryColor}><h1 class="card-heading">${categoryName}</h1>
-  <p class="time-card">${minInt} min ${secInt} seconds</p></div><p class="activity-name-card">${textInput.value}</p></div></section>`
-  timerPage.innerHTML = `<button class="create-new-activity-btn">Create A New Activity</button>`;
+  var activityLogCard = document.querySelector('.activity-log-card')
+  var logCardBorder = document.querySelector('.log-card-border');
+  var createNewActButton = document.querySelector('.create-new-activity-btn');
+  var placeholderText = document.querySelector('.no-activities');
+  // activityNameCard.innerText = `${textInput.value}`;
+  // cardHeading.innerText = `${categoryName}`;
+  // timeCard.innerText = `${minInt} min ${secInt} seconds`;
+  // logCardBorder.setAttribute('id',`${categoryColor}`)
+  activityLogCard.classList.remove('hidden');
+  placeholderText.classList.add('hidden');
   completedActivityHeader.classList.remove('hidden');
   newActivityHeader.classList.add('hidden');
   currentActivityHeader.classList.add('hidden');
+  timerPage.classList.add('hidden');
+  createNewActButton.classList.remove('hidden');
+  createNewCards();
 }
 
-function returnToHomePage() {
-  var homePage = document.getElementsByTagName('main')[0];
-  homePage.innerHTML = `<h2 class="new-activity">New Activity</h2>
-        <section class="create-new-activity card-shadow">
-          <p>Select a category:</p>
-          <section class="category-btn">
-            <button id = "study" class="study focus" type = "button" >
-              <img class="study-img" src="./assets/study.svg" alt="study-img">
-              <p class="labels study-label">Study</p>
-            </button>
-            <button id = "meditate" class="meditate" type = "button" >
-              <img class="meditate-img" src="./assets/meditate.svg" alt="meditate-img">
-              <p class="labels meditate-label">Meditate</p>
-            </button>
-            <button id = "exercise" class="exercise" type = "button" >
-              <img class="exercise-img" src="./assets/exercise.svg" alt="exercise-img">
-              <p class="labels exercise-label">Exercise</p>
-            </button>
-          </section>
-          <p class="what-to-accomplish">What would you like to accomplish during this time?</p>
-          <input id="text-input" type="text" class="accomplish-input">
-          <div class="all-time-input">
-            <div class="time-input minutes">
-              <p class="time-name">Minutes</p>
-              <input id="minutes-input" class="input-time" type="number" name="minutes" min = 0 placeholder="0">
-            </div>
-            <div class="time-input seconds">
-              <p class="time-name">Seconds</p>
-              <input id="seconds-input" class="input-time" type="number" name="seconds" min = 0 placeholder="0">
-            </div>
-          </div>
-          <div class="warning-pop-up">
-          </div>
-          <button type="button" class="start-act-btn"name="Start Activity">Start Activity</button>
-        </section>`
+function createNewCards() {
+  var pastActivitiesLog = document.querySelector('.past-activities-log');
+  class logCards {
+    constructor() {
+      // var activityNameCard = document.querySelector('.activity-name-card');
+      // var timeCard = document.querySelector('.time-card');
+      // var cardHeading = document.querySelector('.card-heading');
+      // this.activityNameCard.innerText = `${textInput.value}`;
+      // this.cardHeading.innerText = `${categoryName}`;
+      // this.timeCard.innerText = `${minInt} min ${secInt} seconds`;
+      // this.logCardBorder.setAttribute('id',`${categoryColor}`)
+      this.sender = `${categoryName}`;
+      console.log(this.sender)
+  }
+}
+  var loggedCard = new logCards();
+  var newCard = document.createElement('section');
+  newCard.classList.add('activity-log-card');
+  newCard.innerHTML = `<div class = "activity-card-text">
+        <div class=log-card-border id=>
+        <h1 class="card-heading"></h1>
+        <p class="time-card"></p>
+      </div>
+      <p class="activity-name-card"></p>
+        </div>`
+  pastActivitiesLog.appendChild(loggedCard);
+
 }

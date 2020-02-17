@@ -14,7 +14,8 @@
       <h2 class="new-activity">New Activity</h2>
       <h2 class="current-activity hidden">Current Activity</h2>
       <h2 class="completed-activity hidden">Completed Activity</h2>
-      <section class="create-new-activity card-shadow">
+      <section class="page-background card-shadow">
+        <section class = 'home-page'>
         <p>Select a category:</p>
         <section class="category-btn">
           <button id="study" class="study focus" type="button">
@@ -47,13 +48,38 @@
           <p class="warning">A description is required.</p>
         </section>
         <button type="button" class="start-act-btn"name="Start Activity">Start Activity</button>
+        <button class="log-activity-btn hidden">Log Activity</button>
       </section>
+      <section class="timer-page hidden"> <p class="user-activity" id="user-activity"></p>
+      <p class="timer" id="timer"><span id="minutes"></span><span id="seconds"></span></p>
+      <div class="timer-circle-holder" id="timer-circle-holder">
+        <button class="timer-circle" id="timer-circle">
+          <p class="start-complete" id="start-complete">Start</p>
+        </button>
+      </div>
+      <!-- <div class="log-activity-holder hidden"> -->
+        <button class="log-activity-button hidden">Log Activity</button>
+      <!-- </div> -->
+      </section>
+      <button class="create-new-activity-btn hidden">Create A New Activity</button>
+    </section>
     </main>
     <aside>
       <h2 class="past-activities">Past Activities</h2>
       <section class="past-activities-log">
-        <p class="no-activities">You haven't logged any activities yet!</p>
-        <p class="no-activities">Complete the form to the left to get started.</p>
+        <section class="activity-log-card hidden">
+        <div class = "activity-card-text">
+        <div class=log-card-border id=>
+        <h1 class="card-heading"></h1>
+        <p class="time-card"></p>
+      </div>
+      <p class="activity-name-card"></p>
+        </div>
+        </section>
+        <section class="no-activities">
+        <p>You haven't logged any activities yet!</p>
+        <p>Complete the form to the left to get started.</p>
+      </section>
       </section>
     </aside>
   </section>

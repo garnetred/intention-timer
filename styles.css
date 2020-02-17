@@ -55,7 +55,7 @@ main {
   width: 100%;
 }
 
-.create-new-activity {
+.page-background {
   background-color: #46424D;
   border-radius: 4px;
   height: 580px;
@@ -212,6 +212,10 @@ aside {
   text-transform: capitalize;
 }
 
+.timer-page {
+  height:100%;
+}
+
 .timer {
   display: flex;
   font-size: 6em;
@@ -256,26 +260,24 @@ aside {
 
 .start-complete {
   display: flex;
-  font-size: 2em;
+  font-size: 3em;
   justify-content: center;
   margin-top: 8%;
   text-transform: uppercase;
 }
 
-.log-activity-holder {
-  display: flex;
-  justify-content: center;
-  margin-top: 8%;
-}
-
-.log-activity-btn {
+.log-activity-button {
   background-color: #FFF;
   border-radius: 4px;
   color: #2B2733;
   font-size: 19px;
   height: 38px;
   text-transform: uppercase;
-  width: 45%;
+  width: 35%;
+  justify-content: center;
+  position: absolute;
+  left: 33%;
+  bottom: 15%;
 }
 
 .create-new-activity-btn {
