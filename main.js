@@ -11,12 +11,12 @@ var errorMessage = document.querySelector('.error');
 var timerPage = document.querySelector('.timer-page')
 var logActivityBtn = document.querySelector('.log-activity-button');
 var homePage = document.querySelector('.home-page');
-var newActivityHeader = document.querySelector('.new-activity');
-var currentActivityHeader = document.querySelector('.current-activity');
-var completedActivityHeader = document.querySelector('.completed-activity');
+var activityHeader = document.querySelector('.activity-header');
 var circleColor = null;
 var categoryName = null;
 var categoryColor = null;
+
+
 
 minutesInput.addEventListener('keyup', onlyNumbersCheck);
 secondsInput.addEventListener('keyup', onlyNumbersCheck);
@@ -51,7 +51,7 @@ function handleClick(event) {
     minutesInput.value = '';
     secondsInput.value = '';
     textInput.value = '';
-    document.activeElement = null;
+    activityHeader.innerText = 'New Activity';
   }
 }
 
@@ -63,6 +63,7 @@ function changeColors(event) {
   } else {
     event.target.classList.add('active');
     event.target.firstElementChild.src = `./assets/${clickedId}-active.svg`;
+
   }
   removeActiveState(clickedId);
 }
@@ -87,18 +88,17 @@ function checkInputFields(event) {
   var areBtnsClicked = checkCategoryBtns();
   if (!minutesInput.value || !secondsInput.value || !textInput.value || areBtnsClicked===false) {
     errorMessage.classList.remove('hidden');
-    console.log("error");
     return;
-    checkInputFields();
   } else {
-    console.log('success')
     homePage.classList.add('hidden');
     generateTimerPage();
   }
 }
 
 function checkCategoryBtns() {
-  if (studyButton.classList.contains('active') || meditateButton.classList.contains('active') || exerciseButton.classList.contains('active')) {
+  if (studyButton.classList.contains('active') ||
+  meditateButton.classList.contains('active') ||
+  exerciseButton.classList.contains('active')) {
     return true;
   } else {
     return false;
@@ -128,9 +128,7 @@ function repopulateTimerPage(time) {
   secondsDisplay.innerText = `${secHolder}`;
   timerPage.classList.remove('hidden');
   logActivityBtn.classList.add('hidden');
-  currentActivityHeader.classList.remove('hidden');
-  newActivityHeader.classList.add('hidden');
-  completedActivityHeader.classList.add('hidden');
+  activityHeader.innerText = 'Current Activity';
   changeCircleColor();
 }
 
@@ -152,9 +150,7 @@ function countdownTimer(minInt, secInt) {
   var time = (minInt * 60) + secInt;
   var intervalId = setInterval(function() {
     if (time < 0) {
-      completedActivityHeader.classList.remove('hidden');
-      newActivityHeader.classList.add('hidden');
-      currentActivityHeader.classList.add('hidden');
+      activityHeader.innerText = "Completed Activity"
       clearInterval(intervalId);
       return completedTimer();
     }
@@ -178,9 +174,7 @@ function logActivity() {
   var createNewActButton = document.querySelector('.create-new-activity-btn');
   var placeholderText = document.querySelector('.no-activities');
   placeholderText.classList.add('hidden');
-  completedActivityHeader.classList.remove('hidden');
-  newActivityHeader.classList.add('hidden');
-  currentActivityHeader.classList.add('hidden');
+  activityHeader.innerText = 'Completed Activity';
   timerPage.classList.add('hidden');
   createNewActButton.classList.remove('hidden');
   createNewCards();

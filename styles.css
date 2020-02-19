@@ -47,9 +47,7 @@ main {
   width: 60%;
 }
 
-.new-activity,
-.current-activity,
-.completed-activity {
+.activity-header {
   margin: 0;
   padding: 10px 0;
   width: 100%;
