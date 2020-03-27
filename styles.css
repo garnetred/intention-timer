@@ -41,19 +41,19 @@ p {
 }
 
 main {
-  display:flex;
+  display: flex;
   flex-direction: column;
   margin: 2%;
   width: 60%;
 }
 
-.new-activity {
+.activity-header {
   margin: 0;
   padding: 10px 0;
   width: 100%;
 }
 
-.create-new-activity {
+.page-background {
   background-color: #46424D;
   border-radius: 4px;
   height: 580px;
@@ -87,6 +87,10 @@ img {
 
 button {
   color: #FFF;
+}
+
+button > * {
+  pointer-events: none;
 }
 
 .study,
@@ -154,6 +158,14 @@ input {
   right: 90px;
 }
 
+.warning {
+  display: inline;
+}
+
+.hidden {
+  display: none;
+}
+
 .start-act-btn {
   background-color: #FFF;
   border-radius: 4px;
@@ -198,6 +210,10 @@ aside {
   text-transform: capitalize;
 }
 
+.timer-page {
+  height:100%;
+}
+
 .timer {
   display: flex;
   font-size: 6em;
@@ -217,6 +233,7 @@ aside {
 }
 
 .timer-circle {
+  background-color: #46424D;
   border-radius: 100%;
   border: solid 2px #FFF;
   height: 100%;
@@ -241,26 +258,24 @@ aside {
 
 .start-complete {
   display: flex;
-  font-size: 2em;
+  font-size: 3em;
   justify-content: center;
-  margin-top: 37%;
+  margin-top: 8%;
   text-transform: uppercase;
 }
 
-.log-activity-holder {
-  display: flex;
-  justify-content: center;
-  margin-top: 8%;
-}
-
-.log-activity-btn {
+.log-activity-button {
   background-color: #FFF;
   border-radius: 4px;
+  bottom: 15%;
   color: #2B2733;
   font-size: 19px;
   height: 38px;
+  justify-content: center;
+  left: 33%;
+  position: absolute;
   text-transform: uppercase;
-  width: 45%;
+  width: 35%;
 }
 
 .create-new-activity-btn {
@@ -280,7 +295,8 @@ aside {
   background-color: #46424D;
   border-radius: 6px;
   box-shadow: 10px 10px 5px -4px rgba(38,34,45,0.95);
-  height: 99%;
+  height: 115px;
+  margin-bottom: 7%;
   margin-left: 7%;
   width: 84%;
 }
@@ -322,7 +338,7 @@ aside {
   color: #CBC9CF;
   font-size: 1em;
   font-weight: 300;
-  margin: 0;
+  margin-top: 16px;
   padding-left: 1%;
   text-transform: capitalize;
 }

@@ -11,8 +11,11 @@
     </header>
     <section class="whole-page">
     <main>
-      <h2 class="new-activity">New Activity</h2>
-      <section class="create-new-activity card-shadow">
+      <h2 class="activity-header">New Activity</h2>
+      <!-- <h2 class="current-activity hidden">Current Activity</h2>
+      <h2 class="completed-activity hidden">Completed Activity</h2> -->
+      <section class="page-background card-shadow">
+        <section class = 'home-page'>
         <p>Select a category:</p>
         <section class="category-btn">
           <button id="study" class="study focus" type="button">
@@ -30,26 +33,42 @@
         </section>
         <p class="what-to-accomplish">What would you like to accomplish during this time?</p>
         <input id="text-input" type="text" class="accomplish-input">
-        <div class="all-time-input">
-          <div class="time-input minutes">
+        <section class="all-time-input">
+          <section class="time-input minutes">
             <p class="time-name">Minutes</p>
             <input id="minutes-input" class="input-time" type="number" name="minutes" min=0 placeholder="0">
-          </div>
-          <div class="time-input seconds">
+          </section>
+          <section class="time-input seconds">
             <p class="time-name">Seconds</p>
             <input id="seconds-input" class="input-time" type="number" name="seconds" min=0 placeholder="0">
-          </div>
-        </div>
-        <div class="warning-pop-up">
-        </div>
+          </section>
+        </section>
+        <section class="error hidden">
+          <img src="./assets/warning.svg" class="warning-img" alt="warning img">
+          <p class="warning">A description is required.</p>
+        </section>
         <button type="button" class="start-act-btn"name="Start Activity">Start Activity</button>
+        <button class="log-activity-btn hidden">Log Activity</button>
       </section>
+      <section class="timer-page hidden"> <p class="user-activity" id="user-activity"></p>
+      <p class="timer" id="timer"><span id="minutes"></span><span id="seconds"></span></p>
+      <div class="timer-circle-holder" id="timer-circle-holder">
+        <button class="timer-circle" id="timer-circle">
+          <p class="start-complete" id="start-complete"></p>
+        </button>
+      </div>
+        <button class="log-activity-button hidden">Log Activity</button>
+      </section>
+      <button class="create-new-activity-btn hidden">Create A New Activity</button>
+    </section>
     </main>
     <aside>
       <h2 class="past-activities">Past Activities</h2>
       <section class="past-activities-log">
-        <p class="no-activities">You haven't logged any activities yet!</p>
-        <p class="no-activities">Complete the form to the left to get started.</p>
+        <section class="no-activities">
+        <p>You haven't logged any activities yet!</p>
+        <p>Complete the form to the left to get started.</p>
+      </section>
       </section>
     </aside>
   </section>

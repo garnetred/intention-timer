@@ -5,14 +5,18 @@ var studyButton = document.getElementById("study");
 var meditateButton = document.getElementById("meditate");
 var exerciseButton = document.getElementById("exercise");
 var boxArray = [studyButton, meditateButton, exerciseButton];
-var startActBtn = document.getElementById('start-act-btn');
+var startActBtn = document.querySelector('.start-act-btn');
 var activeBtn = document.querySelector('.active');
-var warningPopUp = document.getElementById('warning-pop-up');
-var timerPage = document.querySelector('.create-new-activity');
-var currentActivityHeader = document.querySelector('.new-activity')
+var errorMessage = document.querySelector('.error');
+var timerPage = document.querySelector('.timer-page')
+var logActivityBtn = document.querySelector('.log-activity-button');
+var homePage = document.querySelector('.home-page');
+var activityHeader = document.querySelector('.activity-header');
 var circleColor = null;
 var categoryName = null;
 var categoryColor = null;
+
+
 
 minutesInput.addEventListener('keyup', onlyNumbersCheck);
 secondsInput.addEventListener('keyup', onlyNumbersCheck);
@@ -34,18 +38,22 @@ function handleClick(event) {
     categoryName = 'Exercise';
   } else if (event.target.classList.contains('start-act-btn')) {
     checkInputFields(event);
-    generateTimerPage();
   } else if (event.target.classList.contains("timer-circle")) {
     var minInt = parseInt(minutesInput.value);
     var secInt = parseInt(secondsInput.value);
     countdownTimer(minInt, secInt);
-  } else if (event.target.classList.contains('log-activity-btn')) {
+  } else if (event.target.classList.contains('log-activity-button')) {
     logActivity();
   } else if (event.target.classList.contains('create-new-activity-btn')) {
-    returnToHomePage(event);
+    var createNewActButton = document.querySelector('.create-new-activity-btn');
+    createNewActButton.classList.add('hidden');
+    homePage.classList.remove('hidden');
+    minutesInput.value = '';
+    secondsInput.value = '';
+    textInput.value = '';
+    activityHeader.innerText = 'New Activity';
   }
 }
-
 
 function changeColors(event) {
   var clickedId = event.target.id;
@@ -55,6 +63,7 @@ function changeColors(event) {
   } else {
     event.target.classList.add('active');
     event.target.firstElementChild.src = `./assets/${clickedId}-active.svg`;
+
   }
   removeActiveState(clickedId);
 }
@@ -76,18 +85,20 @@ function onlyNumbersCheck() {
 }
 
 function checkInputFields(event) {
-  event.preventDefault();
   var areBtnsClicked = checkCategoryBtns();
-  if (!minutesInput.value || !secondsInput.value || !textInput.value || areBtnsClicked === false){
-    warningPopUp.innerHTML = `<img src="./assets/warning.svg" class="warning-img" alt="warning img">
-    <p class="warning">Please fill out all information!</p>`;
-  } else if (minutesInput.value > 0 && secondsInput.value > 0 && textInput.value > 0) {
-
+  if (!minutesInput.value || !secondsInput.value || !textInput.value || areBtnsClicked===false) {
+    errorMessage.classList.remove('hidden');
+    return;
+  } else {
+    homePage.classList.add('hidden');
+    generateTimerPage();
   }
 }
 
 function checkCategoryBtns() {
-  if (studyButton.classList.contains('active') || meditateButton.classList.contains('active') || exerciseButton.classList.contains('active')) {
+  if (studyButton.classList.contains('active') ||
+  meditateButton.classList.contains('active') ||
+  exerciseButton.classList.contains('active')) {
     return true;
   } else {
     return false;
@@ -107,16 +118,17 @@ function repopulateTimerPage(time) {
   var remainingMin = Math.floor(time/60);
   var minuteHolder = parseInt(remainingMin);
   var secHolder = `${remainingSec < 10 ? '0' : '' }${remainingSec}`;
-  timerPage.innerHTML = `<p class="user-activity" id="user-activity">${textInput.value}</p>
-  <p class="timer" id="timer"><span id="minutes">${minuteHolder}:</span><span id="seconds">${secHolder}</span></p>
-  <div class="timer-circle-holder" id="timer-circle-holder">
-    <div class="timer-circle" id="timer-circle" role="button">
-      <p class="start-complete" id="start-complete">start</p>
-    </div>
-  </div>
-  <div class="log-activity-holder">
-  </div>`
-  currentActivityHeader.innerText = "Current Activity";
+  var userActivity = document.querySelector('.user-activity');
+  var minutesDisplay = document.getElementById('minutes');
+  var secondsDisplay = document.getElementById('seconds');
+  var startComplete = document.querySelector('#start-complete');
+  startComplete.innerHTML = "Start";
+  userActivity.innerText = `${textInput.value}`;
+  minutesDisplay.innerText = `${minuteHolder}:`;
+  secondsDisplay.innerText = `${secHolder}`;
+  timerPage.classList.remove('hidden');
+  logActivityBtn.classList.add('hidden');
+  activityHeader.innerText = 'Current Activity';
   changeCircleColor();
 }
 
@@ -138,7 +150,7 @@ function countdownTimer(minInt, secInt) {
   var time = (minInt * 60) + secInt;
   var intervalId = setInterval(function() {
     if (time < 0) {
-      currentActivityHeader.innerText = "Completed Activity";
+      activityHeader.innerText = "Completed Activity"
       clearInterval(intervalId);
       return completedTimer();
     }
@@ -150,8 +162,7 @@ function countdownTimer(minInt, secInt) {
 
 function completedTimer() {
   var startComplete = document.querySelector('#start-complete');
-  var logActivityHolder = document.querySelector('.log-activity-holder');
-  logActivityHolder.innerHTML = `<button class="log-activity-btn">Log Activity</button>`;
+  logActivityBtn.classList.remove('hidden');
   startComplete.innerHTML = "Complete!"
 }
 
@@ -159,45 +170,29 @@ function logActivity() {
   var minInt = parseInt(minutesInput.value);
   var secInt = parseInt(secondsInput.value);
   var pastActivitiesLog = document.querySelector('.past-activities-log');
-  pastActivitiesLog.innerHTML = `<section class="activity-log-card"><div class = "activity-card-text"><div class=log-card-border id=${categoryColor}><h1 class="card-heading">${categoryName}</h1>
-  <p class="time-card">${minInt} min ${secInt} seconds</p></div><p class="activity-name-card">${textInput.value}</p></div></section>`
-  timerPage.innerHTML = `<button class="create-new-activity-btn">Create A New Activity</button>`;
-  currentActivityHeader.innerText = "Completed Activity";
+  var logCardBorder = document.querySelector('.log-card-border');
+  var createNewActButton = document.querySelector('.create-new-activity-btn');
+  var placeholderText = document.querySelector('.no-activities');
+  placeholderText.classList.add('hidden');
+  activityHeader.innerText = 'Completed Activity';
+  timerPage.classList.add('hidden');
+  createNewActButton.classList.remove('hidden');
+  createNewCards();
 }
 
-function returnToHomePage() {
-  var homePage = document.getElementsByTagName('main')[0];
-  homePage.innerHTML = `<h2 class="new-activity">New Activity</h2>
-        <section class="create-new-activity card-shadow">
-          <p>Select a category:</p>
-          <section class="category-btn">
-            <button id = "study" class="study focus" type = "button" >
-              <img class="study-img" src="./assets/study.svg" alt="study-img">
-              <p class="labels study-label">Study</p>
-            </button>
-            <button id = "meditate" class="meditate" type = "button" >
-              <img class="meditate-img" src="./assets/meditate.svg" alt="meditate-img">
-              <p class="labels meditate-label">Meditate</p>
-            </button>
-            <button id = "exercise" class="exercise" type = "button" >
-              <img class="exercise-img" src="./assets/exercise.svg" alt="exercise-img">
-              <p class="labels exercise-label">Exercise</p>
-            </button>
-          </section>
-          <p class="what-to-accomplish">What would you like to accomplish during this time?</p>
-          <input id="text-input" type="text" class="accomplish-input">
-          <div class="all-time-input">
-            <div class="time-input minutes">
-              <p class="time-name">Minutes</p>
-              <input id="minutes-input" class="input-time" type="number" name="minutes" min = 0 placeholder="0">
-            </div>
-            <div class="time-input seconds">
-              <p class="time-name">Seconds</p>
-              <input id="seconds-input" class="input-time" type="number" name="seconds" min = 0 placeholder="0">
-            </div>
-          </div>
-          <div class="warning-pop-up">
-          </div>
-          <button type="button" class="start-act-btn"name="Start Activity">Start Activity</button>
-        </section>`
+function createNewCards() {
+  var pastActivitiesLog = document.querySelector('.past-activities-log');
+  var newCard = document.createElement('section');
+  var minInt = parseInt(minutesInput.value);
+  var secInt = parseInt(secondsInput.value);
+  newCard.classList.add('activity-log-card');
+  newCard.innerHTML =
+    `<div class = "activity-card-text">
+    <div class=log-card-border id=${categoryColor}>
+    <h1 class="card-heading">${categoryName}</h1>
+    <p class="time-card">${minInt} min ${secInt} seconds</p>
+    </div>
+    <p class="activity-name-card">${textInput.value}</p>
+    </div>`
+  pastActivitiesLog.appendChild(newCard);
 }
